@@ -12,13 +12,10 @@ import threading
 
 #bookmark={'homeTimeline':datetime.datetime.utcnow(),'mention':datetime.datetime.utcnow()}
 weatherSubscription=[{'screen_name':'silencedrop','location':'Bowling Green, OH','time':'8:00','language':'zh-cn','last_sent':datetime.date(2000,1,1)},
-                     {'screen_name':'mimienn','location':'nanchang','time':'19:00','language':'zh-cn','last_sent':datetime.date(2000,1,1)},
+                     
                      #{'screen_name':'baspland','location':'San Francisco','time':'9:00','language':'en','last_sent':datetime.date(2000,1,1)},
-                     #{'screen_name':'its_LilianaJan','location':'90000','time':'10:00','language':'en','last_sent':datetime.date(2000,1,1)},
-                     #{'screen_name':'Anya042','location':'nanchang','time':'19:00','last_sent':datetime.date(2000,1,1)},
                      ]
 replyHome=[{'screen_name':'silencedrop'},
-              {'screen_name':'mimienn'},
               #{'screen_name':'hELLoELL'},
               #{'screen_name':'Anya042'},
               #{'screen_name':'its_LilianaJans'},
@@ -26,7 +23,7 @@ replyHome=[{'screen_name':'silencedrop'},
 timelineLog={'home':datetime.datetime.utcnow()}
 loopInterval={'status':3600,'homeTimeline':300,'weather':60,'autoFo':3600,'job':10800}
 jobSearchQuery=["job developer python","job developer JavaScript PHP","job developer C++",]
-#jobReplyBlacklist=["",]
+
 def getweatherReport(location,language):
     google_result = pywapi.get_weather_from_google(location,language)
     msg=google_result['forecast_information']['forecast_date']+', '
@@ -104,7 +101,7 @@ def seekJob():
     print "seeking job"
     utcNow=datetime.datetime.utcnow()
     utcAgo=utcNow-datetime.timedelta(seconds=loopInterval['job'])
-    reply='''Hi, my creator is looking for a programmer job\nlinkedin: http://alturl.com/ajyhr\nemail: jialinliu7@gmail.com\n'''
+    reply='''Hi, I am a twitter bot created by J.L, he is looking for a programmer job\nlinkedin: http://alturl.com/ajyhr\nemail: jialinliu7@gmail.com\n'''
     list=[]
     for queryKeywords in jobSearchQuery:
         pageIndex=1
