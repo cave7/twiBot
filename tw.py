@@ -55,10 +55,6 @@ def getQuote():
     #msg=msg[30:170]
 
 def connectTwitter():
-    consumer_key="kv3ReRJ4EfN0UsqBqhMx6w"
-    consumer_secret="7j22oH7UPZ7BzHUVpKbsEfNDlVwSqOQU5eJPFmTNvlI"
-    access_token="475314640-fFDfX85bc5sM0BZ4yIvXKe0S7ieufIR1QdNbPESM"
-    access_token_secret="jML8973BOpYXy1tmwRxVSDyKRY1dLpIFh3Mk1BN0PYw"
     auth = tweepy.OAuthHandler(config['consumer_key'], config['consumer_secret'])
     auth.set_access_token(config['access_token'], config['access_token_secret'])
     global api
@@ -86,7 +82,7 @@ def weatherReport():
     
 def checkHomeTimeline():
     #global replyMessage
-    print "Checking Home Timeline"
+    #print "Checking Home Timeline"
     statuses = tweepy.Cursor(api.home_timeline).items()
     utcNow=datetime.datetime.utcnow()
     #utcAgo=utcNow-datetime.timedelta(seconds=loopInterval['homeTimeline'])
